@@ -1,0 +1,16 @@
+@use 'variables' as vars;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: vars.$main-font;
+}
+body {
+  background-color: vars.$navy-950;
+}
