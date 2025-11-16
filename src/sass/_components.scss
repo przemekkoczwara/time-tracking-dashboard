@@ -1,0 +1,73 @@
+@use 'variables' as vars;
+@use 'mixins' as mix;
+
+.dashboard__wrapper {
+  padding: 6.25rem 1rem;
+  width: 612px;
+}
+
+// @include mix.desktop {
+//   .user__panel {
+//     display: flex;
+//     flex-direction: column;
+//     width: 250px;
+//   }
+// }
+
+.user__profile {
+  background: vars.$purple-600;
+  padding: vars.$padding-32;
+  border-radius: vars.$radius-15;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+  .user__details {
+    p {
+      color: vars.$navy-200;
+      font-size: vars.$size-15;
+      line-height: 18px;
+    }
+    .user__name {
+      color: vars.$white;
+      font-size: vars.$size-24;
+      line-height: 28px;
+      font-weight: vars.$weight-300;
+    }
+  }
+}
+
+.user__controls {
+  background: vars.$navy-900;
+  padding: vars.$padding-32;
+  display: flex;
+  justify-content: space-around;
+  border-bottom-right-radius: vars.$radius-15;
+  border-bottom-left-radius: vars.$radius-15;
+  margin-top: -10px;
+
+  @include mix.tablet {
+    padding: vars.$padding-24;
+  }
+  // position: relative;
+
+  .btn {
+    background: none;
+    color: vars.$purple-500;
+    border: none;
+    font-size: vars.$size-18;
+    line-height: 21px;
+
+    &:active {
+      color: vars.$white;
+    }
+  }
+}
