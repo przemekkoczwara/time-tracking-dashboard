@@ -7,8 +7,10 @@
     <title>Time Tracking Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300,400,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300..900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -22,16 +24,18 @@
           />
           <div class="user__details">
             <p>Report for</p>
-            <h1 class="user__name">Jeremy Robson</h1>
+            <h2 class="user__name">Jeremy Robson</h2>
           </div>
         </div>
         <div class="user__controls">
-          <button class="btn">Daily</button>
-          <button class="btn">Weekly</button>
-          <button class="btn">Monthly</button>
+          <button id="daily-btn" class="btn">Daily</button>
+          <button id="weekly-btn" class="btn">Weekly</button>
+          <button id="monthly-btn" class="btn">Monthly</button>
         </div>
       </section>
-      <section class="stats__board"></section>
+      <section id="stats" class="stats__board">
+        <!-- dynamic create card -->
+      </section>
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>

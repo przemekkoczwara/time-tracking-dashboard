@@ -25,8 +25,11 @@ $navy-200: hsl(238 100% 77%);
 $white: hsl(0, 0%, 100%);
 
 // sizes
+$size-56: 3.5rem; // 56px
+$size-40: 2.5rem; // 40px
+$size-32: 2rem; //32px
 $size-24: 1.5rem; //24px
-$size-18: 1.124rem; //18px
+$size-18: 1.125rem; //18px
 $size-15: 0.833rem; // 15px
 
 // paddings
@@ -37,3 +40,8 @@ $padding-24: 1.5rem; // 24px
 // radius
 
 $radius-15: 0.833rem;
+
+//spacing
+$space-40: 2.5rem; // 40px
+$space-32: 2rem; // 32px
+$space-24: 1.5rem;

@@ -2,17 +2,17 @@
 @use 'mixins' as mix;
 
 .dashboard__wrapper {
-  padding: 6.25rem 1rem;
-  width: 612px;
-}
+  padding: 6.25rem 1.5rem; // px perfect = figma
+  display: grid;
+  grid-template-columns: 1fr;
 
-// @include mix.desktop {
-//   .user__panel {
-//     display: flex;
-//     flex-direction: column;
-//     width: 250px;
-//   }
-// }
+  @include mix.desktop {
+    grid-template-columns: 1fr 2fr;
+    gap: vars.$space-32;
+    align-items: stretch;
+    max-width: 1024px;
+  }
+}
 
 .user__profile {
   background: vars.$purple-600;
@@ -20,7 +20,7 @@
   border-radius: vars.$radius-15;
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: vars.$space-24;
   position: relative;
   z-index: 1;
 
@@ -29,6 +29,12 @@
     height: 64px;
     border-radius: 50%;
     border: 3px solid white;
+
+    @include mix.desktop {
+      width: 78px;
+      height: 78px;
+      margin-bottom: vars.$space-40;
+    }
   }
   .user__details {
     p {
@@ -41,7 +47,17 @@
       font-size: vars.$size-24;
       line-height: 28px;
       font-weight: vars.$weight-300;
+
+      @include mix.desktop {
+        font-size: vars.$size-40;
+        line-height: 47px;
+      }
     }
+  }
+  @include mix.desktop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
   }
 }
 
@@ -57,7 +73,6 @@
   @include mix.tablet {
     padding: vars.$padding-24;
   }
-  // position: relative;
 
   .btn {
     background: none;
@@ -66,8 +81,90 @@
     font-size: vars.$size-18;
     line-height: 21px;
 
-    &:active {
+    &.active {
       color: vars.$white;
     }
+  }
+
+  @include mix.desktop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 21px;
+  }
+}
+
+@include mix.tablet {
+  .stats__board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: vars.$space-24;
+    margin-top: vars.$space-24;
+
+    @include mix.desktop {
+      margin-top: 0;
+    }
+  }
+}
+
+.card {
+  color: white;
+  margin-top: vars.$padding-24;
+  border-radius: vars.$radius-15;
+  padding: vars.$padding-24;
+
+  @include mix.tablet {
+    margin-top: 0;
+  }
+  @include mix.desktop {
+    padding: vars.$padding-32;
+  }
+}
+
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+
+  h3 {
+    font-size: vars.$size-18;
+    line-height: 21px;
+    font-size: vars.$weight-500;
+  }
+}
+
+.card__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  position: relative;
+  z-index: 1;
+
+  p:first-child {
+    font-size: vars.$size-32;
+    line-height: 38px;
+    font-weight: vars.$weight-300;
+
+    @include mix.tablet {
+      font-size: vars.$size-56;
+      line-height: 66px;
+    }
+  }
+
+  p:last-child {
+    font-size: vars.$size-15;
+    line-height: 18px;
+    font-size: vars.$weight-400;
+    color: vars.$navy-200;
+  }
+
+  @include mix.tablet {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  @include mix.desktop {
+    margin-top: vars.$padding-24;
   }
 }
