@@ -15,12 +15,12 @@ const backgroundColors = [
 ];
 
 const cardImages = {
-  Work: 'src/images/icon-work.svg',
-  Play: 'src/images/icon-play.svg',
-  Study: 'src/images/icon-study.svg',
-  Exercise: 'src/images/icon-exercise.svg',
-  Social: 'src/images/icon-social.svg',
-  'Self Care': 'src/images/icon-self-care.svg',
+  Work: './images/icon-work.svg',
+  Play: './images/icon-play.svg',
+  Study: './images/icon-study.svg',
+  Exercise: './images/icon-exercise.svg',
+  Social: './images/icon-social.svg',
+  'Self Care': './images/icon-self-care.svg',
 };
 
 // console.log(dailyBtn, weeklyBtn, montlyBtn, statsBoard);
@@ -58,7 +58,7 @@ function generateCards(data, timeframe = 'daily') {
 }
 
 function getData() {
-  fetch('/data.json')
+  fetch('./data.json')
     .then((response) => {
       if (!response.ok) throw new Error('HTTP error:' + response.status);
       return response.json();
