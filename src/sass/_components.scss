@@ -2,15 +2,35 @@
 @use 'mixins' as mix;
 
 .dashboard__wrapper {
-  padding: 6.25rem 1.5rem; // px perfect = figma
+  max-width: 1110px;
+  width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-rows: 1fr repeat(6, auto);
+  gap: 2rem;
+  padding: 1rem;
+
+  @include mix.tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
 
   @include mix.desktop {
-    grid-template-columns: 1fr 2fr;
-    gap: vars.$space-32;
-    align-items: stretch;
-    max-width: 1024px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+
+.user__panel {
+  @include mix.tablet {
+    grid-column: 1 / 3;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include mix.desktop {
+    grid-column: 1;
+    grid-row: 1 / 3;
   }
 }
 
@@ -54,10 +74,13 @@
       }
     }
   }
+
+  @include mix.tablet {
+    flex: 1;
+  }
   @include mix.desktop {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0;
   }
 }
 
@@ -93,30 +116,35 @@
   }
 }
 
-@include mix.tablet {
-  .stats__board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: vars.$space-24;
-    margin-top: vars.$space-24;
-
-    @include mix.desktop {
-      margin-top: 0;
-    }
-  }
+.card__image {
+  width: 70px;
+  height: 70px;
+  background-size: cover;
+  position: absolute;
+  top: -15px;
+  right: 25px;
 }
 
 .card {
   color: white;
-  margin-top: vars.$padding-24;
+  border-radius: vars.$radius-15;
+  // padding: vars.$padding-24;
+  position: relative;
+  // z-index: -1;
+  overflow: hidden;
+}
+
+article {
+  background-color: vars.$navy-900;
   border-radius: vars.$radius-15;
   padding: vars.$padding-24;
+  margin-top: 60px;
+  z-index: 1;
+  transition: background-color 0.3s linear;
 
-  @include mix.tablet {
-    margin-top: 0;
-  }
-  @include mix.desktop {
-    padding: vars.$padding-32;
+  &:hover {
+    background-color: vars.$navy-800;
+    cursor: pointer;
   }
 }
 
@@ -129,10 +157,9 @@
   h3 {
     font-size: vars.$size-18;
     line-height: 21px;
-    font-size: vars.$weight-500;
+    font-weight: vars.$weight-500;
   }
 }
-
 .card__body {
   display: flex;
   justify-content: space-between;

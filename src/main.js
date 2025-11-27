@@ -3,7 +3,7 @@ import './sass/main.scss';
 const dailyBtn = document.getElementById('daily-btn');
 const weeklyBtn = document.getElementById('weekly-btn');
 const monthlyBtn = document.getElementById('monthly-btn');
-const statsBoard = document.getElementById('stats');
+const dashboard = document.getElementById('dashboard');
 
 const backgroundColors = [
   'hsl(15, 100%, 70%)',
@@ -14,18 +14,28 @@ const backgroundColors = [
   'hsl(43, 84%, 65%)',
 ];
 
+const cardImages = {
+  Work: 'src/images/icon-work.svg',
+  Play: 'src/images/icon-play.svg',
+  Study: 'src/images/icon-study.svg',
+  Exercise: 'src/images/icon-exercise.svg',
+  Social: 'src/images/icon-social.svg',
+  'Self Care': 'src/images/icon-self-care.svg',
+};
+
 // console.log(dailyBtn, weeklyBtn, montlyBtn, statsBoard);
 
 function generateCards(data, timeframe = 'daily') {
-  statsBoard.innerHTML = '';
-
+  document.querySelectorAll('.card').forEach((card) => card.remove());
   data.forEach((item, index) => {
-    const card = document.createElement('article');
+    const card = document.createElement('section');
     card.classList.add('card');
-    // card.style.background = backgroundColors[index];
-    card.style.background = 'hsl(235, 46%, 20%)';
+    card.setAttribute('id', 'card');
+    card.style.background = backgroundColors[index];
     // use extensions ES6 String HTML
     card.innerHTML = /* html */ `
+    <div class="card__image"></div>
+    <article>
     <div class="card__header">
       <h3>${item.title}</h3>
       <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
@@ -35,9 +45,15 @@ function generateCards(data, timeframe = 'daily') {
     <div class="card__body">
       <p>${item.timeframes[timeframe].current}hrs</p>
       <p>Last week: ${item.timeframes[timeframe].previous}hrs</p>
-      </div>  `;
+    </div>
+    </article>  `;
 
-    statsBoard.append(card);
+    const imgLoad = cardImages[item.title];
+    card.querySelector(
+      '.card__image'
+    ).style.backgroundImage = `url('${imgLoad}')`;
+
+    dashboard.append(card);
   });
 }
 

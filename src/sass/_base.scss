@@ -15,7 +15,7 @@ html {
 body {
   background-color: vars.$navy-950;
 
-  @include mix.tablet {
+  @include mix.desktop {
     display: flex;
     justify-content: center;
     align-items: center;
