@@ -30,7 +30,6 @@ function generateCards(data, timeframe = 'daily') {
   data.forEach((item, index) => {
     const card = document.createElement('section');
     card.classList.add('card');
-    card.setAttribute('id', 'card');
     card.style.background = backgroundColors[index];
     // use extensions ES6 String HTML
     card.innerHTML = /* html */ `
