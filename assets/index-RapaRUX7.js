@@ -11,4 +11,4 @@
       <p>${c.timeframes[s].current}hrs</p>
       <p>Last week: ${c.timeframes[s].previous}hrs</p>
     </div>
-    </article>  `;const r=f[c.title];e.querySelector(".card__image").style.backgroundImage=`url('${r}')`,m.append(e)})}function h(){fetch("/data.json").then(t=>{if(!t.ok)throw new Error("HTTP error:"+t.status);return t.json()}).then(t=>{n(t),l.addEventListener("click",()=>{a(l),n(t,"daily")}),d.addEventListener("click",()=>{a(d),n(t,"weekly")}),u.addEventListener("click",()=>{a(u),n(t,"monthly")})}).catch(t=>console.log(t))}function a(t){[l,d,u].forEach(s=>s.classList.remove("active")),t.classList.add("active")}h();
+    </article>  `;const r=f[c.title];e.querySelector(".card__image").style.backgroundImage=`url('${r}')`,m.append(e)})}function h(){fetch("./data.json").then(t=>{if(!t.ok)throw new Error("HTTP error:"+t.status);return t.json()}).then(t=>{n(t),l.addEventListener("click",()=>{a(l),n(t,"daily")}),d.addEventListener("click",()=>{a(d),n(t,"weekly")}),u.addEventListener("click",()=>{a(u),n(t,"monthly")})}).catch(t=>console.log(t))}function a(t){[l,d,u].forEach(s=>s.classList.remove("active")),t.classList.add("active")}h();
